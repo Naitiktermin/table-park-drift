@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpkgm84ie3hjk"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_car_script"]
+[ext_resource type="Texture2D" uid="uid://cleonslldexs2" path="res://assets/Cars/car_red_1.png" id="2_car_texture"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_player"]
+radius = 20.0
+height = 76.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_car_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707963267948966
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_car_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707963267948966
+shape = SubResource("CapsuleShape2D_player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+zoom = Vector2(1.15, 1.15)
+
+[node name="TireLeft" type="Marker2D" parent="."]
+position = Vector2(-22, -14)
+
+[node name="TireRight" type="Marker2D" parent="."]
+position = Vector2(-22, 14)
+
+[node name="SmokeLeft" type="CPUParticles2D" parent="."]
+position = Vector2(-22, -14)
+emitting = false
+amount = 16
+lifetime = 0.35
+direction = Vector2(-1, 0)
+spread = 35.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 55.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color = Color(0.85, 0.85, 0.85, 0.45)
+
+[node name="SmokeRight" type="CPUParticles2D" parent="."]
+position = Vector2(-22, 14)
+emitting = false
+amount = 16
+lifetime = 0.35
+direction = Vector2(-1, 0)
+spread = 35.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 55.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color = Color(0.85, 0.85, 0.85, 0.45)

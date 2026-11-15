@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://tirebarrier001"]
+
+[ext_resource type="Texture2D" path="res://assets/Objects/tires_red.png" id="1_tire_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tire"]
+radius = 26.0
+
+[node name="TireBarrier" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tire_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tire")
